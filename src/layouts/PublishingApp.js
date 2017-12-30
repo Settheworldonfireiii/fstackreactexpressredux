@@ -35,5 +35,5 @@ return (
 }}
 
 
-export default PublishingApp;
+export default connect(mapStateToProps, mapDispatchToProps)(PublishingApp);
 
