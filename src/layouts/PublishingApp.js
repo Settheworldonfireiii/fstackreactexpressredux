@@ -1,3 +1,5 @@
+import {bindActionCreators} from 'redux';
+import articleActions from '../actions/article.js';
 import falcorModel from '../falcorModel.js';
 import React from 'react';
 import { connect } from 'react-redux';
@@ -6,6 +8,7 @@ const mapStateToProps = (state) => ({
 });
 debugger;
 const mapDispatchToProps = (dispatch) => ({
+articleActions: bindActionCreators(articleActions, dispatch)
 });
 debugger;
 console.log("scheiss")
@@ -23,7 +26,9 @@ then((length) => length );
 const articles = await falcorModel.
 get(['articles', {from: 0, to: articlesLength-1},
 ['id','articleTitle', 'articleContent']])
-.then((articlesResponse) => articlesResponse.json.articles);}
+.then((articlesResponse) => articlesResponse.json.articles);
+this.props.articleActions.articlesList(articles);
+}
 render () {
 
 let articlesJSX = [];
