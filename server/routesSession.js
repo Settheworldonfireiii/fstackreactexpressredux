@@ -9,11 +9,16 @@ export default [
 route: ['login'] ,
 call: (callPath, args) =>
 {
-const { username, password } = args[0];
+const saltedPassword = password+'pubApp';
+// pubApp is our salt string
+const saltedPassHash = crypto
+.createHash('sha256')
+.update(saltedPassword)
+.digest('hex');
 const userStatementQuery = {
 $and: [
 { 'username': username },
-{ 'password': password }
+{ 'password': saltedPassHash }
 ]
 }
 }
