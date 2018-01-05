@@ -23,15 +23,7 @@ app.use('/model.json', falcorExpress.dataSourceRoute((req, res) => {
 return new falcorRouter(routes);
 }));
 app.use(express.static('dist'));
-app.get('/', (req, res) => {
-Article.find( (err, articlesDocs) => {
-const ourArticles = articlesDocs.map((articleItem) => {return `<h2>${articleItem.articleTitle}</h2>
-${articleItem.articleContent}`;
-}).join('<br/>');
-res.send(`<h1>Publishing App Initial Application!</h1>
-${ourArticles}`);
-});
-});
+
 
 
 app.server.listen(process.env.PORT || 3000);

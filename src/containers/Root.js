@@ -8,12 +8,14 @@ import createHashHistory from 'history/createHashHistory';
 const noQueryKeyHistory = createHashHistory({
 queryKey: false
 });
+
 export default class Root extends React.Component {
 static propTypes = {
 history : React.PropTypes.object.isRequired,
 store
 : React.PropTypes.object.isRequired
 }
+
 render () {
 return (
 <Provider store={this.props.store}>

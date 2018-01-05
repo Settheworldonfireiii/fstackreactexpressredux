@@ -4,6 +4,7 @@ import CoreLayout from '../layouts/CoreLayout';
 import PublishingApp from '../layouts/PublishingApp';
 import LoginView from '../views/LoginView';
 
+
 export default (
 <Route component={CoreLayout} path='/'>
 <IndexRoute component={PublishingApp} name='home' />
