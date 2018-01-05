@@ -13,14 +13,13 @@ import PublishingApp from './layouts/PublishingApp';
 
 
 
-debugger;
-const store1 = createStore(article);
-debugger;
-console.log("weiss");
-debugger;
-console.log("ayahuasca");
-render(<Provider store={store1}>
-<PublishingApp />
-</Provider>,
-document.getElementById('publishingAppRoot')
+const target = document.getElementById('publishingAppRoot');
+const history = createBrowserHistory();
+export const store = configureStore(window.__INITIAL_STATE__);
+syncReduxAndRouter(history, store);
+const node = (
+<Root
+history={history}
+store={store} />
 );
+ReactDOM.render(node, target);
