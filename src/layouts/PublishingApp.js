@@ -32,14 +32,12 @@ this.props.articleActions.articlesList(articles);
 render () {
 
 let articlesJSX = [];
-
-for(let articleKey in this.props) { 
-const articleDetails = this.props[articleKey];
-const currentArticleJSX = (	
-	<div key={articleKey}>
+for(let articleKey in this.props.article) {
+const articleDetails = this.props.article[articleKey];
+const currentArticleJSX = (
+<div key={articleKey}>
 <h2>{articleDetails.articleTitle}</h2>
-
-<h3> {articleDetails.articleContent} </h3>
+<h3>{articleDetails.articleContent}</h3>
 </div>);
 articlesJSX.push(currentArticleJSX);
 }
