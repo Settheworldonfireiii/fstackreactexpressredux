@@ -21,6 +21,27 @@ $and: [
 { 'password': saltedPassHash }
 ]
 }
+return User.find(userStatementQuery, function(err, user) {
+if (err) throw err;
+}).then((result) => {
+if(result.length) {
+return null;
+// SUCCESSFUL LOGIN mocked now (will implement next)
+} else {
+// INVALID LOGIN
+return [
+{
+path: ['login', 'token'],
+value: "INVALID"
+},
+{
+path: ['login', 'error'],
+value: "NO USER FOUND, incorrect login information"
+}
+];
+}
+return result;
+});
 }
 }
 ];
